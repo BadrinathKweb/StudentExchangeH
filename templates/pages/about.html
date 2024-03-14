@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock %}
+{% block content %}
+  <style>
+    /* Custom CSS styles */
+
+    /* Showcase-inner section */
+    #showcase-inner {
+      background: url('path/to/your/background-image.jpg') center/cover no-repeat;
+      padding: 100px 0;
+      color: #fff;
+    }
+
+    #showcase-inner h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    #showcase-inner p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    /* Breadcrumb section */
+    #bc {
+      padding: 20px 0;
+      background-color: #f8f9fa;
+    }
+
+    #bc .breadcrumb {
+      background-color: transparent;
+      font-size: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    #bc .breadcrumb-item a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    #bc .breadcrumb-item.active {
+      color: #6c757d;
+    }
+
+    /* Team section */
+    #team {
+      padding: 100px 0;
+    }
+
+    #team h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    #team .col-md-4 {
+      margin-bottom: 30px;
+    }
+
+    #team h4 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    #team .text-success {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+    }
+
+    #team p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+  </style>
+
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About Student Exchange Hub</h1>
+          <p class="lead">We provide a student interactive application where students can buy or sell the tools</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
+          <h4>K Badrinath</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i>President</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i>+91 8919726946</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> badrikandikonda12@gmail.com</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
+          <h4>B Deepthi</h4>
+          <p class="text-success">Manager</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> +91 9949497513</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> 20r11a0467@gcet.edu.in</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
+          <h4>V Ramya</h4>
+          <p class="text-success">Manager</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i>+91 9392239568</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> 20r11a0459@gcet.edu.in</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
