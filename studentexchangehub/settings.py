@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -83,14 +83,14 @@ WSGI_APPLICATION = 'studentexchangehub.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'bsbp',
-        'USER': 'postgres',
-        'PASSWORD':'123456',
-        'HOST':'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        
+        'NAME' : BASE_DIR / "db.sqlite3",
+
     }
 }
-
+DATABASES['default'] = dj_database_url.parse("postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase")
+# postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
