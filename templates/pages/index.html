@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% block title %} Home{% endblock %}
 {% block content %}
 
@@ -246,7 +246,7 @@
 
       </div>
     </div>
-  </section> -->
+  </section> 
 
   <section id="services" class="py-5 bg-secondary text-white">
     <div class="container">
@@ -276,4 +276,167 @@
     </div>
   </section>
 
-{% endblock %}
+{% endblock %} -->
+
+
+{% extends 'base.html' %}
+{% block title %} Home{% endblock %}
+{% block content %}
+
+<style>
+  /* Centering the welcome statement */
+  .home-search .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  /* Styling the search form */
+  .home-search .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .home-search .search form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home-search .search form .form-row {
+    margin-bottom: 15px;
+  }
+
+  .home-search .search form .form-row .col-md-4,
+  .home-search .search form .form-row .col-md-6 {
+    margin-bottom: 10px;
+  }
+
+  /* Adjusting form inputs */
+  .home-search .search form input[type="text"],
+  .home-search .search form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* Styling the submit button */
+  .home-search .search form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .home-search .search form button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<section id="showcase">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          {% include 'partials/_alerts.html' %}
+          <h1 class="display-4 mb-4">
+            Welcome to Student Exchange Hub
+          </h1>
+          <p class="lead">Search for the things that you want to buy</p>
+          <div class="search">
+            <form action="{%url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <input type="text" name="keywords" class="form-control" placeholder="Search (Electronics, Gadgets, books)">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <select name="year" class="form-control">
+                    <option selected="true" disabled="disabled">Year</option>
+                    <option value="1st">1st year</option>
+                    <option value="2nd">2nd year</option>
+                    <option value="3rd">3rd year</option>
+                    <option value="4th">4th year</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <select name="branch" class="form-control">
+                    <option selected="true" disabled="disabled">Branch</option>
+                    <option value="ECE">ECE</option>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MEC">MECH</option>
+                    <option value="CI">CIVIL</option>
+                    <option value="DS">DATA SCEIENCE</option>
+                    <option value="IT">IT</option>
+                    <option value="AI">AIML</option>
+                    <option value="CS">CYBER SECURITY</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Form Row 2 -->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <select name="category" class="form-control">
+                    <option selected="true" disabled="disabled">Category (All)</option>
+                    <option value="1">Electronics</option>
+                    <option value="2">Books</option>
+                    <option value="3">Gadgets</option>
+                    <option value="4">components</option>
+                    <option value="5">Others</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Max Price (Any)</option>
+                    <option value="100000">₹100</option>
+                    <option value="200000">₹200</option>
+                    <option value="300000">₹500</option>
+                    <option value="400000">₹1,000</option>
+                    <option value="500000">₹2,000</option>
+                    <option value="600000">₹5,000</option>
+                    <option value="700000">₹10,000</option>
+                    <option value="800000">₹20,000</option>
+                    <option value="900000">₹50,000</option>
+                    <option value="1000000">₹1L+</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-comment fa-4x mr-4"></i>
+          <hr>
+          <h3>Electronics</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+            hic dignissimos ratione ea quae.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-home fa-4x mr-4"></i>
+          <hr>
+          <h3>Tools</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
+            hic dignissimos ratione ea qu
