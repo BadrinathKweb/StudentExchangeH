@@ -1,14 +1,14 @@
 {% extends 'admin/base.html'%}
 {% load static %}
 {% block branding%}
-    <h1 id="head">
+    <h1 id="branding">
         <img src="{% static 'img/logo.png' %}" alt="BS" height="50" width="75" class="brand_img">Admin Area
     </h1>
 {% endblock %}
 {% block extrastyle %}
     <!-- <link rel="stylesheet" href="{%static 'css/admin.css' %}"> -->
     <style>
-    #header{
+    #branding{
         height: 50px;
         background: #093463;
         color: #fff;
@@ -21,7 +21,7 @@
     }
     a:link,
     a:visited{
-        color: #10284e
+        color: #10284e;
     }
     .button, input[type=submit], input[type=button], .submit-row input, a.button {
         background: #093463;
