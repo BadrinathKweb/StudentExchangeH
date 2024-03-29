@@ -382,6 +382,22 @@ textarea.form-control {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
+  
+.form-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.form-row > .col,
+.form-row > [class*="col-"] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
 </style>
 <section id="showcase">
     <div class="container text-center">
