@@ -1,90 +1,156 @@
-{% load static%}
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/logo.png" class="logo" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-          <li 
-          {% if '/' == request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}>
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
-          </li>
-          <li 
-          {% if 'about' in request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}
-          >
-            <a class="nav-link" href="{% url 'about'%}">About</a>
-          </li>
-          <li 
-          {% if 'listing' in request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}
-          >
-            <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-         <li 
-          {% if 'dashboard' in request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}
-          >
-            <a class="nav-link" href="{% url 'dashboard' %}">
-              <i class="fas fa-user-plus"></i> {{request.user.first_name}}(Dashboard)</a>
-          </li>
-        <li class="nav-item mr-3">
-          <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
-            <i class="fas fa-sign-out-alt"></i>
-           Logout</a>
-            <form action="{% url 'logout' %}" method="POST" id="logout">
-              {% csrf_token %}
-              <input type="hidden">
-            </form>
-        </li>
-        {% else %}
-        
-          <li 
-          {% if 'register' in request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}
-          >
-            <a class="nav-link" href="{% url 'register' %}">
-              <i class="fas fa-user-plus"></i> Register</a>
-          </li>
-          <li 
-          {% if 'login' in request.path %}
-            class = "nav-item active mr-3 selunder"
-          {% else%}
-            class="nav-item mr-3"
-          {% endif%}
-          >
-            <a class="nav-link" href="{% url 'login'%}">
-              <i class="fas fa-sign-in-alt"></i>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        /* Navbar Brand */
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
 
-              Login</a>
-          </li>
-        
-        {% endif %}
-      </ul>
-      </div>
-    </div>
-  </nav>
+        /* Navbar Links */
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        /* Active Link */
+        .navbar-nav .nav-item.active .nav-link {
+            color: #ffc107;
+        }
+
+        /* Toggle Button */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            background-color: #343a40;
+        }
+
+        .dropdown-item {
+            color: #fff;
+        }
+
+        .dropdown-item:hover {
+            background-color: #ffc107;
+            color: #343a40;
+        }
+
+        /* Logo */
+        .logo {
+            width: 50px; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo.png" class="logo" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li 
+                    {% if '/' == request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}>
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li 
+                    {% if 'about' in request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'about'%}">About</a>
+                    </li>
+                    <li 
+                    {% if 'listing' in request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <li 
+                    {% if 'dashboard' in request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'dashboard' %}">
+                            <i class="fas fa-user-plus"></i> {{request.user.first_name}}(Dashboard)</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout</a>
+                        <form action="{% url 'logout' %}" method="POST" id="logout">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
+                    {% else %}
+                    
+                    <li 
+                    {% if 'register' in request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'register' %}">
+                            <i class="fas fa-user-plus"></i> Register</a>
+                    </li>
+                    <li 
+                    {% if 'login' in request.path %}
+                        class="nav-item active mr-3 selunder"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'login'%}">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login</a>
+                    </li>
+                    
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
