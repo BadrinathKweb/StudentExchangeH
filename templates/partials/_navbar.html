@@ -1,5 +1,5 @@
-{% load static%}
-<!-- Navbar -->
+<!-- {% load static%}
+
 <style>
  ul {
   list-style-type: none;
@@ -28,6 +28,8 @@ li a:hover {
 .active {
   background-color: #FFA500;
 }
+ul.topnav li.right {float: right;}
+
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="container">
@@ -110,4 +112,66 @@ li a:hover {
         </ul>
       </div>
     </div>
-</nav>
+</nav> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {margin: 0;}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #04AA6D;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right,
+  ul.topnav li {float: none;}
+}
+</style>
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a {% if '/' == request.path %}class="active"{% endif %} href="{% url 'index' %}">Home</a></li>
+  <li><a {% if 'about' in request.path %}class="active"{% endif %} href="{% url 'about' %}">About</a></li>
+  <li><a {% if 'listing' in request.path %}class="active"{% endif %} href="{% url 'listings' %}">Featured Listings</a></li>
+  {% if user.is_authenticated %}
+  <li class="right"><a {% if 'dashboard' in request.path %}class="active"{% endif %} href="{% url 'dashboard' %}"><i class="fas fa-user-plus"></i> {{ request.user.first_name }} (Dashboard)</a></li>
+  <li class="right"><a href="javascript:{document.getElementById('logout').submit()}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <form action="{% url 'logout' %}" method="POST" id="logout">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+  </li>
+  {% else %}
+  <li class="right"><a {% if 'register' in request.path %}class="active"{% endif %} href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a></li>
+  <li class="right"><a {% if 'login' in request.path %}class="active"{% endif %} href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+  {% endif %}
+</ul>
+
+</body>
+</html>
