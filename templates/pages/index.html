@@ -457,7 +457,16 @@ textarea.form-control {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
- 
+  .welcome-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+
+  .welcome-text {
+    text-align: center; /* Align text in the center */
+  }
 
 </style>
 <section id="showcase">
@@ -465,10 +474,14 @@ textarea.form-control {
       <div class="home-search p-5">
         <div class="overlay p-5">
           {% include 'partials/_alerts.html' %}
-          <h1 class="display-4 mb-4">
-            Welcome to Student Exchange Hub
-          </h1>
-          <p class="lead">Search for the things that you want to buy</p>
+          <div class="welcome-wrapper">
+            <div class="welcome-text">
+              <h1 class="display-4 mb-4">
+                Welcome to Student Exchange Hub
+              </h1>
+              <p class="lead">Search for the things that you want to buy</p>
+            </div>
+          </div>
           <div class="search">
             <form action="{%url 'search' %}">
               <!-- Form Row 1 -->
