@@ -474,7 +474,10 @@ textarea.form-control {
   .welcome-text {
     text-align: center; /* Align text in the center */
   }
-
+  .search button[type="submit"] {
+  display: block; /* Ensure the button takes up the full width of its container */
+  margin: 0 auto; /* Center the button horizontally */
+}
 </style>
 <section id="showcase">
     <div class="container text-center">
@@ -494,7 +497,7 @@ textarea.form-control {
               <div class="form-row">
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">Search</label>
-                  <input type="text" name="keywords" class="form-control" placeholder="Search (Electronics, Gadgets)">
+                  <input type="text" name="keywords" class="form-control" placeholder="Search">
                 </div>
 
                 <div class="col-md-4 mb-3">
