@@ -51,6 +51,13 @@
         .selunder:hover::after {
             width: 100%;
         }
+
+        /* Adjustments for small devices */
+        @media (max-width: 768px) {
+            .navbar-nav.ml-auto {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
