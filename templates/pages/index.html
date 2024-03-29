@@ -3,6 +3,28 @@
 {% block content %}
 <style>
 /* Style for the search bar */
+.search .form-row {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.search .form-row > .col-md-4 {
+  padding-right: 5px;
+  padding-left: 5px;
+  flex: 0 0 calc(50% - 10px); /* Adjust width and margins for half of the container */
+  max-width: calc(50% - 10px); /* Adjust width and margins for half of the container */
+}
+
+@media (min-width: 768px) {
+  .search .form-row > .col-md-4 {
+    flex: 0 0 calc(25% - 10px); /* Adjust width and margins for quarter of the container on larger screens */
+    max-width: calc(25% - 10px); /* Adjust width and margins for quarter of the container on larger screens */
+  }
+}
+
 
 .search {
   margin-top: 20px;
