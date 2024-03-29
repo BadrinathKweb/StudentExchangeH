@@ -1,114 +1,34 @@
 {% extends 'base.html' %}
 {% block title %} Login {% endblock %}
 {% block content %}
-<style>
-/* Add your CSS code here */
-body.login {
-    background: #f8f8f8;
-}
-
-.login #header {
-    height: auto;
-    padding: 15px 16px;
-    justify-content: center;
-}
-
-.login #header h1 {
-    font-size: 18px;
-}
-
-.login #header h1 a {
-    color: #fff;
-}
-
-.login #content {
-    padding: 20px 20px 0;
-}
-
-.login #container {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
-    overflow: hidden;
-    width: 28em;
-    min-width: 300px;
-    margin: 100px auto;
-}
-
-.login #content-main {
-    width: 100%;
-}
-
-.login .form-row {
-    padding: 4px 0;
-    float: left;
-    width: 100%;
-    border-bottom: none;
-}
-
-.login .form-row label {
-    padding-right: 0.5em;
-    line-height: 2em;
-    font-size: 1em;
-    clear: both;
-    color: #333;
-}
-
-.login .form-row #id_username, .login .form-row #id_password {
-    clear: both;
-    padding: 8px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
-
-.login span.help {
-    font-size: 10px;
-    display: block;
-}
-
-.login .submit-row {
-    clear: both;
-    padding: 1em 0 0 9.4em;
-    margin: 0;
-    border: none;
-    background: none;
-    text-align: left;
-}
-
-.login .password-reset-link {
-    text-align: center;
-}
-</style>
-
 <section id="login" class="bg-light py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-header bg-primary text-white">
+          <div class="card" style="border: 1px solid #eaeaea; border-radius: 4px; overflow: hidden;">
+            <div class="card-header bg-primary text-white" style="background-color: #007bff; color: #ffffff;">
               <h4>
                 <i class="fas fa-sign-in-alt"></i> Login</h4>
                 {% include 'partials/_alerts.html'%}
             </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 20px;">
               <form action="{% url 'login' %}" method="POST">
                   {% csrf_token %}
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" name="username" class="form-control" required>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="username" style="display: inline-block; margin-bottom: 0.5rem;">Username</label>
+                  <input type="text" name="username" class="form-control" style="width: 100%; padding: 0.5rem; font-size: 1rem; line-height: 1.25; color: #495057; background-color: #ffffff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: 0.25rem; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" required>
                 </div>
 
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" class="form-control" required>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                  <label for="password" style="display: inline-block; margin-bottom: 0.5rem;">Password</label>
+                  <input type="password" name="password" class="form-control" style="width: 100%; padding: 0.5rem; font-size: 1rem; line-height: 1.25; color: #495057; background-color: #ffffff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: 0.25rem; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;" required>
                 </div>
 
-                <input type="submit" value="Login" class="btn btn-secondary btn-block">
+                <input type="submit" value="Login" class="btn btn-secondary btn-block" style="width: 100%; padding: 0.5rem; font-size: 1rem; line-height: 1.25; color: #ffffff; background-color: #6c757d; border: 1px solid #6c757d; border-radius: 0.25rem; cursor: pointer; transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+
               </form>
               <br>
-              <a href="#" class="btn btn-primary">Forgot password</a>
+              <a href="#" class="btn btn-primary" style="color: #ffffff; background-color: #007bff; border-color: #007bff;">Forgot password</a>
             </div>
           </div>
         </div>
