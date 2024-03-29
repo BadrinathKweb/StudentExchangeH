@@ -2,6 +2,52 @@
 {% block title %} Home{% endblock %}
 {% block content %}
 <style>
+/* Style for the search bar */
+.search {
+  margin-top: 20px;
+}
+
+.search form {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.search p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.search .form-row {
+  margin-bottom: 15px;
+}
+
+.search .form-row .form-control {
+  border-radius: 3px;
+}
+
+.search button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.search button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Add more styling to form elements if needed */
+
   .lead {
   font-size: 1.25rem;
   font-weight: 300;
@@ -442,26 +488,6 @@ textarea.form-control {
                     <option value="IT">IT</option>
                     <option value="AI">AIML</option>
                     <option value="CS">CYBER SECURITY</option>
-                    <!-- <option value="2ME">2nd year MECH</option>
-                    <option value="3ME">3rd year MECH</option>
-                    <option value="4ME">4th year MECH</option>
-                    <option value="1C">1st year CIVIL</option>
-                    <option value="2C">2nd year CIVIL</option>
-                    <option value="3C">3rd year CIVIL</option>
-                    <option value="4C">4th year CIVIL</option>
-                    <option value="1DS">1st year DATASCIENCE</option>
-                    <option value="2DS">2nd year DATASCIENCE</option>
-                    <option value="3DS">3rd year DATASCIENCE</option>
-                    <option value="4DS">4th year DATASCIENCE</option>
-                    <option value="1EE">1st year EEE</option>
-                    <option value="2EE">2nd year EEE</option>
-                    <option value="3EE">3rd year EEE</option>
-                    <option value="4EE">4th year EEE</option>
-                    <option value="1AI">1st year AIML</option>
-                    <option value="2AI">2nd year AIML</option>
-                    <option value="3AI">3rd year AIML</option>
-                    <option value="4AI">4th year AIML</option>
-                    <option value="OTH">Others</option> -->
                     </select>
                 </div>
               </div>
