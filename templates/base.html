@@ -1,140 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <!-- Custom -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
-    <style>
-        /* Add custom CSS for the navbar */
-        .navbar {
-            background-color: #007bff;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{% static 'css/all.css' %}">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <!-- Custom -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
 
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-        }
-
-        .navbar-toggler {
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link {
-            color: #ffffff;
-        }
-
-        .nav-link:hover {
-            color: #f8f9fa;
-        }
-
-        .active .nav-link {
-            color: #f8f9fa !important;
-        }
-
-        .selunder::after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
-        }
-
-        .selunder:hover::after {
-            width: 100%;
-        }
-
-        /* Adjustments for small devices */
-        @media (max-width: 768px) {
-            .navbar-nav.ml-auto {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-<!-- Provided Navbar Template -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Existing Content -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/img/logo.png" class="logo" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li {% if '/' == request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
-                </li>
-                <li {% if 'about' in request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>
-                <li {% if 'listing' in request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                {% if user.is_authenticated %}
-                <li {% if 'dashboard' in request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'dashboard' %}">
-                        <i class="fas fa-user-plus"></i> {{ request.user.first_name }}(Dashboard)</a>
-                </li>
-                <li class="nav-item mr-3">
-                    <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
-                        <i class="fas fa-sign-out-alt"></i> Logout</a>
-                    <form action="{% url 'logout' %}" method="POST" id="logout">
-                        {% csrf_token %}
-                        <input type="hidden">
-                    </form>
-                </li>
-                {% else %}
-                <li {% if 'register' in request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'register' %}">
-                        <i class="fas fa-user-plus"></i> Register</a>
-                </li>
-                <li {% if 'login' in request.path %} class="nav-item active mr-3 selunder" {% else %} class="nav-item mr-3" {% endif %}>
-                    <a class="nav-link" href="{% url 'login' %}">
-                        <i class="fas fa-sign-in-alt"></i> Login</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</nav>
-
-{% block content %}
-{% endblock %}
-
-{% include 'partials/_footer.html' %}
-
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-<script src="{% static 'js/lightbox.min.js' %}"></script>
-</body>
+        <title>student exchange hub {% block title %}{% endblock %}</title>
+    </head>
+    
+    <body>
+        {% include 'partials/_navbar.html' %}
+        {% block content %}
+        {% endblock %}
+        {% include 'partials/_footer.html' %}
+        <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/lightbox.min.js' %}"></script>
+    </body>
 </html>
