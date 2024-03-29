@@ -2,6 +2,13 @@
 {% block title %} Home{% endblock %}
 {% block content %}
 <style>
+input[type=text] {
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
 /* Style for the search bar */
 @media (min-width: 768px) {
     .search .form-row > .col-md-4 {
