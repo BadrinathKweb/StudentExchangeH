@@ -3,6 +3,12 @@
 {% block content %}
 <style>
 /* Style for the search bar */
+@media (min-width: 768px) {
+    .search .form-row > .col-md-4 {
+      flex: 0 0 calc(33.33% - 10px); /* Adjust width for one-third of the container on larger screens */
+      max-width: calc(33.33% - 10px); /* Adjust width for one-third of the container on larger screens */
+    }
+  }
 .search .form-row {
   margin-bottom: 15px;
   display: flex;
