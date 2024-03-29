@@ -98,7 +98,7 @@ DATABASES = {
 
     }
 }
-databse_url=os.environ.get("DATABASE_URL")
+databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
 DATABASES['default'] = dj_database_url.parse(databse_url)
 
 # databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
