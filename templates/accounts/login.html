@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% block title %} Login {% endblock %}
 {% block content %}
 <section id="login" class="bg-light py-5">
@@ -35,4 +35,184 @@
       </div>
     </div>
   </section>
+{% endblock %} -->
+
+
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<style>
+    /* Paste the CSS styles for the login page here */
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .title {
+        font-size: 28px;
+        color: royalblue;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+    }
+
+    .title::before,
+    .title::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 0px;
+        background-color: royalblue;
+    }
+
+    .title::before {
+        width: 18px;
+        height: 18px;
+        background-color: royalblue;
+    }
+
+    .title::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+    }
+
+    .message,
+    .signin {
+        color: rgba(88, 87, 87, 0.822);
+        font-size: 14px;
+    }
+
+    .signin {
+        text-align: center;
+    }
+
+    .signin a {
+        color: royalblue;
+    }
+
+    .signin a:hover {
+        text-decoration: underline royalblue;
+    }
+
+    .flex {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .form-group {
+        flex: 1; /* This allows each form group to take up equal space within the flex container */
+    }
+
+    .form-group input {
+        width: 100%; /* Ensures the input fields take up the full width of their respective form groups */
+    }
+
+    .form label {
+        position: relative;
+    }
+
+    .form label .form-control {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+    }
+
+    .form label .form-control + span {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        color: grey;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+    }
+
+    .form label .form-control:placeholder-shown + span {
+        top: 15px;
+        font-size: 0.9em;
+    }
+
+    .form label .form-control:focus + span,
+    .form label .form-control:valid + span {
+        top: 30px;
+        font-size: 0.7em;
+        font-weight: 600;
+    }
+
+    .form label .form-control:valid + span {
+        color: green;
+    }
+
+    .submit {
+        border: none;
+        outline: none;
+        background-color: royalblue;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: .3s ease;
+    }
+
+    .submit:hover {
+        background-color: rgb(56, 90, 194);
+    }
+</style>
+<section id="login" class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <!-- <h4>
+                            <i class="fas fa-sign-in-alt"></i> Login</h4> -->
+                        {% include 'partials/_alerts.html'%}
+                    </div>
+                    <div class="card-body">
+                        <form class="form" action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <p class="title">Login</p>
+                            <p class="message">Enter your credentials to log in.</p>
+                            <div class="form-group">
+                                <label for="username">
+                                    <input type="text" name="username" class="form-control" required>
+                                    <span>Username</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">
+                                    <input type="password" name="password" class="form-control" required>
+                                    <span>Password</span>
+                                </label>
+                            </div>
+                            <button type="submit" value="Login" class="btn btn-secondary btn-block">
+                                Login
+                                <div class="arrow-wrapper">
+                                    <div class="arrow"></div>
+                                </div>
+                            </button>
+                            <p class="signin">Forgot your password? <a href="#">Reset it</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
+
