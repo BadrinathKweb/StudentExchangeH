@@ -214,10 +214,11 @@ button:active {
       </form>
   </li>
   <li class="right">
+    <form action="{%url 'search' %}">
     <div class="searchBox">
-
+     
       <input class="searchInput" type="text" name="" placeholder="Search something">
-      <button class="searchButton" href="{%url 'search' %}">">
+      <button class="searchButton">
              
             
 
@@ -247,6 +248,7 @@ button:active {
 
       </button>
   </div>
+</form>
 </li>
   {% else %}
   <li class="right"><a {% if 'register' in request.path %}class="active"{% endif %} href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a></li>
