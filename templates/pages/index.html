@@ -484,8 +484,17 @@ input[type=text] {
   margin: 8px 0;
   box-sizing: border-box;
 }
+.background-image {
+            background-image: url('\studentexchangehub\pp.webp'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
 </style>
 <section id="showcase">
+  <div class="background-image">
     <div class="container text-center">
       <div class="home-search p-5">
         <div class="overlay p-5">
@@ -740,6 +749,7 @@ input[type=text] {
         </div>
       </div>
     </div>
+  </div>
   </section>
 
 {% endblock %}
