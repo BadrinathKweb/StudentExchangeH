@@ -8,13 +8,26 @@
        
 
         <title>student exchange hub {% block title %}{% endblock %}</title>
+        <style>
+            .container {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, orange, transparent 20%, orangered);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: orange;
+}
+
+
+        </style>
     </head>
     
     <body>
+        <div class="container">
         {% include 'partials/_navbar.html' %}
         {% block content %}
         {% endblock %}
         {% include 'partials/_footer.html' %}
-        
+    </div>
     </body>
 </html>
