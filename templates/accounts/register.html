@@ -123,9 +123,17 @@ button:hover .arrow:before {
 }
 
 .flex {
-  display: flex;
-  width: 100%;
-  gap: 6px;
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+
+.form-group {
+    flex: 1; /* This allows each form group to take up equal space within the flex container */
+}
+
+.form-group input {
+    width: 100%; /* Ensures the input fields take up the full width of their respective form groups */
 }
 
 .form label {
@@ -179,10 +187,15 @@ button:hover .arrow:before {
 .submit:hover {
   background-color: rgb(56, 90, 194);
 }
-.container{
-   width: 100%; /* or any width you desire */
-    margin: 0 auto;
-    text-align: center;
+.container {
+    width: 100%;
+    margin: 0 auto; /* This centers the container horizontally */
+    text-align: center; /* This centers the text inside the container */
+}
+
+.card {
+    display: inline-block; /* Ensures the card is centered */
+    text-align: left; /* Keeps the text inside the card left-aligned */
 }
 @keyframes pulse {
   from {
