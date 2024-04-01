@@ -26,8 +26,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-ALLOWED_HOSTS=['*',"http://127.0.0.1:8000/"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
 
 # Application definition
 
@@ -81,18 +81,20 @@ WSGI_APPLICATION = 'studentexchangehub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-        
-#         'NAME' : BASE_DIR / "db.sqlite3",
-
-#     }
-# }
-
 DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        
+        'NAME' : BASE_DIR / "db.sqlite3",
+
+    }
 }
+database_url=os.environ.get("DATABASE_URL")
+DATABASES['default']=dj_database_url.parse(database_url)
+#postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase
+# DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
+# }
 # databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
 # DATABASES['default'] = dj_database_url.parse(databse_url)
 
