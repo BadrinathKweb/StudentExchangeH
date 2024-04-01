@@ -91,15 +91,10 @@ WSGI_APPLICATION = 'studentexchangehub.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        
-        'NAME' : BASE_DIR / "db.sqlite3",
-
-    }
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
 }
-databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
-DATABASES['default'] = dj_database_url.parse(databse_url)
+# databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
+# DATABASES['default'] = dj_database_url.parse(databse_url)
 
 # databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
 # DATABASES={
