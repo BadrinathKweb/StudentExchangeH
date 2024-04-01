@@ -22,11 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
-
+# SECRET_KEY = 'django-insecure-sj77_9w9qj6abhujo*2j=yxtegn$%nkund6ql(l&*28jou8knm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower == "true"
+# DEBUG=True
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
+# ALLOWED_HOSTS=["*"]
 
 
 # Application definition
@@ -81,20 +84,20 @@ WSGI_APPLICATION = 'studentexchangehub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        
-        'NAME' : BASE_DIR / "db.sqlite3",
-
-    }
-}
-database_url=os.environ.get("DATABASE_URL")
-DATABASES['default']=dj_database_url.parse(database_url)
-#postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase
 # DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+        
+#         'NAME' : BASE_DIR / "db.sqlite3",
+
+#     }
 # }
+# database_url=os.environ.get("DATABASE_URL")
+# DATABASES['default']=dj_database_url.parse("postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase")
+#postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase
+DATABASES = {
+        'default': dj_database_url.parse("postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"),
+}
 # databse_url="postgres://studentexchangehubdatabase_user:nvEje2NbqGMD976Htg0p4vkg3U4aPiwk@dpg-cnvssrect0pc73do6e9g-a.oregon-postgres.render.com/studentexchangehubdatabase"
 # DATABASES['default'] = dj_database_url.parse(databse_url)
 
